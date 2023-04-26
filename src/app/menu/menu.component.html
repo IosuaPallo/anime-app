@@ -6,10 +6,13 @@
 </mat-list>
 -->
 
-<mat-grid-list cols="3" rows="1:3">
-  <mat-grid-tile><a routerLink="animeList">Anime List</a> </mat-grid-tile>
-  <mat-grid-tile><a routerLink="popularAnime">Popular Anime</a> </mat-grid-tile>
-  <mat-grid-tile><a routerLink="ongoingAnime">Home</a> </mat-grid-tile>
-</mat-grid-list>
+<mat-menu #appMenu="matMenu">
+   <a routerLink="animeList">Anime List</a>
+  <a routerLink="popularAnime">Popular Anime</a>
+  <a routerLink="ongoingAnime">Home</a>
+</mat-menu>
+
+<button mat-raised-button color="primary" [matMenuTriggerFor]="appMenu">Menu</button>
+
 <mat-slide-toggle>Toggle me!</mat-slide-toggle>
 

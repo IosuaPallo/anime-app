@@ -16,6 +16,8 @@ import { OngoingAnimeComponent } from './ongoing-anime/ongoing-anime.component';
 import { AnimeListComponent } from './anime-list/anime-list.component';
 import { PopularAnimeComponent } from './popular-anime/popular-anime.component';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatButtonModule } from '@angular/material/button';
+import { AnimeDescriptionComponent } from './anime-description/anime-description.component';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { MatMenuModule } from '@angular/material/menu';
     MenuComponent,
     AnimeListComponent,
     PopularAnimeComponent,
-    OngoingAnimeComponent
+    OngoingAnimeComponent,
+    AnimeDescriptionComponent
   ],
   imports: [
     MatListModule,
@@ -33,7 +36,8 @@ import { MatMenuModule } from '@angular/material/menu';
     BrowserAnimationsModule,
     MatSlideToggleModule,
     MatGridListModule,
-    MatMenuModule, 
+    MatMenuModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
