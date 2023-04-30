@@ -4,12 +4,9 @@
     "\\.angular",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\anime-description",
-    "\\src\\app\\Interfaces",
-    "\\src\\app\\services",
-    "\\src\\app\\services\\anime",
-    "\\src\\assets"
+    "\\src\\app\\menu",
+    "\\src\\app\\services\\photo"
   ],
-  "SelectedNode": "\\src\\app\\app-routing.module.ts",
+  "SelectedNode": "\\src\\app\\app.component.css",
   "PreviewInSolutionExplorer": false
 }

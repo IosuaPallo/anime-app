@@ -1,32 +1,30 @@
 import { StatusType } from "../statusType";
-import { PhotoResponse } from "./photo";
+import { Photo } from "./photo";
 
 
 export interface Anime {
   id: string;
   name: string;
+  status: StatusType;
 }
 
-export interface AnimeListResponse {
-  id: string;
-  name: string;
-}
 
-export interface AnimeDescriptionResponse {
-  id: string;
-  animeId: string; 
+export interface AnimeDescription  extends Anime{
   plot: string;
   type: string;
   genre: Genre[];
   released: string;
-  status: StatusType;
-  photos: PhotoResponse[];
-  mainPhoto: PhotoResponse;
+  photos: Photo[];
+  mainPhoto: Photo;
 }
 
-export interface AnimeOnGoingResponse {
-  anime: Anime;
-  mainPhoto: PhotoResponse;
+export interface OngoingAnime extends Anime {
+  mainPhoto: Photo;
+}
+
+export interface OngoingAnimeRequest {
+  animeId: string;
+  status: StatusType.Ongoing;
 }
 
 export interface Genre {

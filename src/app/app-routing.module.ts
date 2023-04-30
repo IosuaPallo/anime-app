@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnimeDescriptionComponent } from './anime-description/anime-description.component';
 import { AnimeListComponent } from './anime-list/anime-list.component';
 import { OngoingAnimeComponent } from './ongoing-anime/ongoing-anime.component';
 import { PopularAnimeComponent } from './popular-anime/popular-anime.component';
@@ -15,6 +16,15 @@ const routes: Routes = [
   {
     component: PopularAnimeComponent,
     path:"popularAnime",
+  },
+  {
+    component: AnimeDescriptionComponent,
+    path:"animeDescription/:id",
+  },
+  {
+    path: '',
+    redirectTo: '/ongoingAnime',
+    pathMatch:'full',
   }
 ];
 

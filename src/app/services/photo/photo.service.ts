@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PhotoRequest, PhotoResponse } from '../../Interfaces/photo';
+import { PhotoRequest, Photo } from '../../interfaces/photo';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,7 @@ export class PhotoService {
 
   constructor() { }
 
-  getMainPhoto(photoRequest: PhotoRequest): Observable<PhotoResponse> {
+  getMainPhoto(photoRequest: PhotoRequest): Observable<Photo> {
     const mainPhoto = of();
     return mainPhoto;
   }

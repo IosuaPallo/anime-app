@@ -7,9 +7,11 @@
 -->
 
 <mat-menu #appMenu="matMenu">
-   <a routerLink="animeList">Anime List</a>
-  <a routerLink="popularAnime">Popular Anime</a>
-  <a routerLink="ongoingAnime">Home</a>
+  <nav>
+    <a routerLink="/animeList">Anime List</a>
+    <a routerLink="/popularAnime">Popular Anime</a>
+    <a routerLink="/ongoingAnime">Home</a>
+  </nav>
 </mat-menu>
 
 <button mat-raised-button color="primary" [matMenuTriggerFor]="appMenu">Menu</button>

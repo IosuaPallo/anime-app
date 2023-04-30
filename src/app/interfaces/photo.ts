@@ -1,6 +1,6 @@
 import { PhotoType } from "../photoType";
 
-export interface PhotoResponse {
+export interface Photo {
   id: string;
   animeId: string;
   path: string;
