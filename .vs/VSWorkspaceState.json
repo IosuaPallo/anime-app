@@ -3,8 +3,13 @@
     "",
     "\\.angular",
     "\\src",
-    "\\src\\app"
+    "\\src\\app",
+    "\\src\\app\\anime-description",
+    "\\src\\app\\Interfaces",
+    "\\src\\app\\services",
+    "\\src\\app\\services\\anime",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app",
+  "SelectedNode": "\\src\\app\\app-routing.module.ts",
   "PreviewInSolutionExplorer": false
 }
