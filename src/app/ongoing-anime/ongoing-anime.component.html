@@ -1,20 +1,6 @@
 <p>ongoing-anime works!</p>
 <div *ngFor="let anime of ongoingAnimes">
-  <div>
-    <nav>
-      <a routerLink="animeDescription/{{anime.id}}"><img src="{{anime.mainPhoto}}" /></a>
-      <a routerLink="animeDescription/{{anime.id}}">{{anime.name}}</a>
-    </nav>
-  </div>
+  <app-anime-frame [animeId]="anime.id" [mainPhoto]="anime.mainPhoto"></app-anime-frame>
 </div>
 
 
-
-<div>
-  <a *ngFor="let anime of ongoingAnimes">
-    <div>
-      <img src="{{anime.mainPhoto}}" />
-      {{anime.name}}
-    </div>
-  </a>
-</div>

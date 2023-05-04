@@ -4,9 +4,9 @@
     "\\.angular",
     "\\src",
     "\\src\\app",
+    "\\src\\app\\interfaces",
     "\\src\\app\\menu",
-    "\\src\\app\\services\\photo"
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\app.component.css",
   "PreviewInSolutionExplorer": false
 }

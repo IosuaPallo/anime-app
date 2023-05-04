@@ -1,9 +1,4 @@
 <p>popular-anime works!</p>
 <div *ngFor="let anime of popularAnimes">
-  <div>
-    <nav>
-      <a routerLink="animeDescription/{{anime.id}}"><img src="{{anime.mainPhoto}}" /></a>
-      <a routerLink="animeDescription/{{anime.id}}">{{anime.name}}</a>
-    </nav>
-  </div>
+  <app-anime-frame [animeId]="anime.id" [mainPhoto]="anime.mainPhoto"></app-anime-frame>
 </div>

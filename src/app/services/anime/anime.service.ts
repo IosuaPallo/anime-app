@@ -29,8 +29,14 @@ export class AnimeService {
   }
 
   getPopularAnimes(): Observable<> {
-
+    const popularAnimes = of();
+    return popularAnimes;
   }
+
+  createAnime(anime: Anime): void{
+    
+  }
+
 
 }
 

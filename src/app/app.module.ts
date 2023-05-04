@@ -18,6 +18,7 @@ import { OngoingAnimeComponent } from './ongoing-anime/ongoing-anime.component';
 import { AnimeListComponent } from './anime-list/anime-list.component';
 import { PopularAnimeComponent } from './popular-anime/popular-anime.component';
 import { AnimeDescriptionComponent } from './anime-description/anime-description.component';
+import { AnimeFrameComponent } from './anime-frame/anime-frame.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { AnimeDescriptionComponent } from './anime-description/anime-description
     AnimeListComponent,
     PopularAnimeComponent,
     OngoingAnimeComponent,
-    AnimeDescriptionComponent
+    AnimeDescriptionComponent,
+    AnimeFrameComponent
   ],
   imports: [
     MatListModule,

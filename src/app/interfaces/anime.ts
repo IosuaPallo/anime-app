@@ -9,16 +9,24 @@ export interface Anime {
 }
 
 
-export interface AnimeDescription  extends Anime{
+export interface AnimeDescription{
+  id: string;
+  animeId: string;
+  animeName: string;
+  status: StatusType;
   plot: string;
   type: string;
   genre: Genre[];
   released: string;
   photos: Photo[];
   mainPhoto: Photo;
-}
+} 
 
-export interface OngoingAnime extends Anime {
+export interface OngoingAnime {
+  id: string;
+  animeId: string;
+  animeName: string;
+  status: StatusType;
   mainPhoto: Photo;
 }
 
