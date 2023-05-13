@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { OngoingAnime } from '../interfaces/anime';
+import { Anime } from '../models/interfaces/anime';
+import { Photo } from '../models/interfaces/photo';
 import { AnimeService } from '../services/anime/anime.service';
 
 @Component({
@@ -8,19 +9,26 @@ import { AnimeService } from '../services/anime/anime.service';
   styleUrls: ['./ongoing-anime.component.css']
 })
 export class OngoingAnimeComponent {
-  ongoingAnimes?: OngoingAnime[];
+  ongoingAnime?: Anime[];
 
   constructor(private animeService: AnimeService) {
 
   }
 
   ngOnInit(): void {
-    this.getOngoingAnimes(); 
+    this.setAllOngoingAnime(); 
   }
 
-  getOngoingAnimes() {
-    this.animeService.getOngoingAnimes()
-      .subscribe(ongoingAnimes => this.ongoingAnimes = ongoingAnimes);
+  setAllOngoingAnime() {
+    this.animeService.getAllOnGoingAnime().subscribe(response => {
+      this.ongoingAnime = response.map(document => {
+        return {
+          id: document.payload.doc.id,
+          name: document.payload.doc.get('name'),
+          status: document.payload.doc.get('status')
+        } as Anime;
+      });
+    });
   }
 
 }

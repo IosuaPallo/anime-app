@@ -1,6 +1,6 @@
 <div>
-  <nav>
-    <a routerLink="animeDescription/{{anime.id}}"><img src="{{anime.mainPhoto}}" /></a>
+  <nav *ngIf="anime">
+    <a routerLink="animeDescription/{{anime.id}}"><img src="{{mainPhoto.path}}" /></a>
     <a routerLink="animeDescription/{{anime.id}}">{{anime.name}}</a>
   </nav>
 </div>

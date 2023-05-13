@@ -21,6 +21,16 @@ import { AnimeDescriptionComponent } from './anime-description/anime-description
 import { AnimeFrameComponent } from './anime-frame/anime-frame.component';
 
 
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { config } from './config';
+
+import { FirestoreModule } from '@angular/fire/firestore';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { FirebaseAppModule } from '@angular/fire/app';
+import { AngularFireModule } from '@angular/fire/compat';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +50,12 @@ import { AnimeFrameComponent } from './anime-frame/anime-frame.component';
     MatGridListModule,
     MatMenuModule,
     MatButtonModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => getFirestore()),
+    FirestoreModule,
+    FirebaseAppModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

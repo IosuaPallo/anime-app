@@ -1,12 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.angular",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\interfaces",
-    "\\src\\app\\menu",
-    "\\src\\assets"
+    "\\src\\app\\anime-frame",
+    "\\src\\app\\ongoing-anime",
+    "\\src\\app\\popular-anime",
+    "\\src\\app\\services"
   ],
+  "SelectedNode": "\\src\\app\\anime-frame\\anime-frame.component.ts",
   "PreviewInSolutionExplorer": false
 }

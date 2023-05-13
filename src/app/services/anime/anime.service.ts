@@ -1,41 +1,69 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Anime, AnimeDescription, OngoingAnime } from '../../interfaces/anime';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { where } from 'firebase/firestore';
+import { map, Observable, of } from 'rxjs';
+import { environment } from '../../../environments/environment';
+import { Anime, AnimeAddRequest } from '../../models/interfaces/anime';
 import { PhotoType } from '../../photoType';
+import { StatusType } from '../../statusType';
 import { PhotoService } from '../photo/photo.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AnimeService {
-  constructor(private photoService: PhotoService) { }
-
-  getAnimes(): Observable<Anime[]> {
-    const animes = of();
-    return animes;
+  constructor(private firestore: AngularFirestore) {
   }
 
-  getAnimeDescription(): Observable<AnimeDescription> {
-    const anime = of();
-    const mainPhoto = this.photoService.getMainPhoto({ animeId: anime.id, type: PhotoType.Main });
-    const photos = this.photoService.getPhotos({ animeId: anime.id, type: PhotoType.Normal });
-    const animeDescription: Observable<AnimeDescription>;
-    return animeDescription;
-
-  }
-  getOngoingAnimes(): Observable<OngoingAnime[]> {
-    const ongoingAnimes = of();
-    return ongoingAnimes;
+  getAllAnime() {
+    const anime = this.firestore.collection('Anime').snapshotChanges();
+    return anime; 
   }
 
-  getPopularAnimes(): Observable<> {
-    const popularAnimes = of();
-    return popularAnimes;
-  }
-
-  createAnime(anime: Anime): void{
+  getAllOnGoingAnime() {
     
+    const ongoingAnime = this.firestore.collection('Anime', ref => {
+      return ref
+        .where("status", "==", `${StatusType.Ongoing}`);
+    }).snapshotChanges(); 
+    return ongoingAnime; 
   }
+
+  getPopularAnime() {
+    const popularAnime = this.firestore.collection('Anime', ref => {
+      return ref.where('isPopular', '==', true);
+    }).snapshotChanges();
+    return popularAnime;
+  }
+
+
+  getAnime(id: string) {
+    const anime = this.firestore.collection('Anime', ref => {
+      return ref
+        .where('id', "==", `${id}`).limit(1);
+    }).snapshotChanges(); 
+    return anime;
+  }
+
+  getAnimeDescription(id: string) {
+    const animeDescription = this.firestore.collection('AnimeDescription', ref => {
+      return ref
+        .where(`animeId`, `==`, `${id}`).limit(1);
+    }).snapshotChanges();
+    return animeDescription;
+  }
+
+  getGenres(id: string) {
+    return this.firestore.collection('Genres', ref => {
+      return ref.where('animeId', '==', id);
+    }).snapshotChanges();
+  }
+
+
+/*  addAnime(animeAddRequest: AnimeAddRequest) {
+  }
+*/
+
 
 
 }

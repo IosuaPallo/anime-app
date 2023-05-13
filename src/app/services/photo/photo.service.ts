@@ -1,21 +1,31 @@
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { doc, Firestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { PhotoRequest, Photo } from '../../interfaces/photo';
+import { Photo } from '../../models/interfaces/photo';
+import { PhotoType } from '../../photoType';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PhotoService {
 
-  constructor() { }
+  constructor(private firestore: AngularFirestore) { }
 
-  getMainPhoto(photoRequest: PhotoRequest): Observable<Photo> {
-    const mainPhoto = of();
+  getMainPhoto(animeId:string ) {
+    const mainPhoto = this.firestore.collection('Photos', ref => {
+      return ref.
+        where('animeId', "==", animeId)
+        .where('type', "==", PhotoType.Main).limit(1);
+    }).snapshotChanges();
     return mainPhoto;
   }
 
-  getPhotos(photoRequest: PhotoRequest): Observable<PhotoRequest[]> {
-    const photos = of();
+  getPhotos(animeId:string) {
+    const photos = this.firestore.collection('Photos', ref => {
+      return ref.
+        where('animeId', "==", animeId);
+    }).snapshotChanges();
     return photos; 
   }
 

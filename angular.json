@@ -113,6 +113,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "anime-app:build:production",
+            "firebaseProject": "anime-app-e0ea0",
+            "firebaseHostingSite": "anime-app-e0ea0"
+          }
         }
       }
     }

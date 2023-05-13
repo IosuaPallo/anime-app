@@ -1,6 +1,7 @@
-<p>ongoing-anime works!</p>
-<div *ngFor="let anime of ongoingAnimes">
-  <app-anime-frame [animeId]="anime.id" [mainPhoto]="anime.mainPhoto"></app-anime-frame>
-</div>
+<mat-list class="list">
+  <mat-list-item *ngFor="let anime of ongoingAnime">
+    <app-anime-frame [animeId]="anime.id"></app-anime-frame>
+  </mat-list-item>
+</mat-list>
 
 

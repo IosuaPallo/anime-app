@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "anime-app-e0ea0"
+  },
+  "targets": {
+    "anime-app-e0ea0": {
+      "hosting": {
+        "anime-app": [
+          "anime-app-e0ea0"
+        ]
+      }
+    }
+  }
+}
