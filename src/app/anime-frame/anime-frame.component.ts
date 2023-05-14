@@ -14,8 +14,8 @@ import { PhotoService } from '../services/photo/photo.service';
 export class AnimeFrameComponent implements OnInit {
 
   @Input() animeId?: string;
-  mainPhoto?: Photo;
-  anime?: Anime;
+  mainPhoto?: Photo | null;
+  anime?: Anime | null;
 
   constructor(private animeService: AnimeService, private photoService:PhotoService) {
 
@@ -28,33 +28,14 @@ export class AnimeFrameComponent implements OnInit {
 
   setMainPhoto() {
     if (this.animeId) {
-      this.photoService.getMainPhoto(this.animeId).subscribe(response => {
-        response.forEach(document => {
-          const mainPhoto = {
-            id: document.payload.doc.id,
-            animeId: document.payload.doc.get('animeId'),
-            path: document.payload.doc.get('path'),
-            type: document.payload.doc.get('type'),
-          } as Photo;
-          this.mainPhoto = mainPhoto;
-        })
-      });
+      this.photoService.getMainPhoto(this.animeId).subscribe(photo=>this.mainPhoto = photo);
     }
   }
 
   setAnime() {
     if (this.animeId) {
-      this.animeService.getAnime(this.animeId).subscribe(response => {
-        response.forEach(document => {
-          const anime = {
-            id: document.payload.doc.id,
-            name: document.payload.doc.get('name'),
-            status: document.payload.doc.get('status'),
-          } as Anime;
-          this.anime = anime;
-        });
-      });
+      this.animeService.getAnime(this.animeId).subscribe(anime=>this.anime=anime);
     }
   }
- 
+
 }

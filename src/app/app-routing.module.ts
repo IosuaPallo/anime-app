@@ -7,7 +7,7 @@ import { PopularAnimeComponent } from './popular-anime/popular-anime.component';
 const routes: Routes = [
   {
     component: OngoingAnimeComponent,
-    path:"ongoingAnime", 
+    path:"ongoingAnime",
   },
   {
     component: AnimeListComponent,

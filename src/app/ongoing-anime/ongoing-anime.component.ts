@@ -20,14 +20,8 @@ export class OngoingAnimeComponent {
   }
 
   setAllOngoingAnime() {
-    this.animeService.getAllOnGoingAnime().subscribe(response => {
-      this.ongoingAnime = response.map(document => {
-        return {
-          id: document.payload.doc.id,
-          name: document.payload.doc.get('name'),
-          status: document.payload.doc.get('status')
-        } as Anime;
-      });
+    this.animeService.getAllOnGoingAnime().subscribe(anime => {
+      this.ongoingAnime = anime;
     });
   }
 

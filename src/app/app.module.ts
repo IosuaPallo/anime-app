@@ -30,6 +30,14 @@ import { FirestoreModule } from '@angular/fire/firestore';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { FirebaseAppModule } from '@angular/fire/app';
 import { AngularFireModule } from '@angular/fire/compat';
+import {getStorage, provideStorage} from "@angular/fire/storage";
+import { AnimeHeaderComponent } from './anime-header/anime-header.component';
+import {MatIconModule} from "@angular/material/icon";
+import {MatTabsModule} from "@angular/material/tabs";
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { LayoutComponent } from './layout/layout.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +47,10 @@ import { AngularFireModule } from '@angular/fire/compat';
     PopularAnimeComponent,
     OngoingAnimeComponent,
     AnimeDescriptionComponent,
-    AnimeFrameComponent
+    AnimeFrameComponent,
+    AnimeHeaderComponent,
+    LayoutComponent,
+    MenuComponent
   ],
   imports: [
     MatListModule,
@@ -56,6 +67,12 @@ import { AngularFireModule } from '@angular/fire/compat';
     FirebaseAppModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    provideStorage(() => getStorage()),
+    MatIconModule,
+    MatTabsModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]

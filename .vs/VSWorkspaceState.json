@@ -3,11 +3,9 @@
     "",
     "\\src",
     "\\src\\app",
-    "\\src\\app\\anime-frame",
-    "\\src\\app\\ongoing-anime",
     "\\src\\app\\popular-anime",
-    "\\src\\app\\services"
+    "\\src\\environments"
   ],
-  "SelectedNode": "\\src\\app\\anime-frame\\anime-frame.component.ts",
+  "SelectedNode": "\\src\\app\\popular-anime\\popular-anime.component.ts",
   "PreviewInSolutionExplorer": false
 }

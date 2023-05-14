@@ -34,7 +34,7 @@ export class AnimeDescriptionComponent implements OnInit {
 
   setGenres() {
     if (this.animeId) {
-      this.animeService.getGenres(this.animeId).subscribe(response => {
+     /* this.animeService.getGenres(this.animeId).subscribe(response => {
         this.animeGenres = response.map(document => {
           return {
             id: document.payload.doc.id,
@@ -42,13 +42,13 @@ export class AnimeDescriptionComponent implements OnInit {
             genre: document.payload.doc.get('genre'), 
           } as Genre;
         })
-      })
+      })*/
     }
   }
 
   setMainPhoto() {
     if (this.animeId) {
-      this.photoService.getMainPhoto(this.animeId).subscribe(response => {
+     /* this.photoService.getMainPhoto(this.animeId).subscribe(response => {
         response.forEach(document => {
           const mainPhoto = {
             id: document.payload.doc.id,
@@ -58,13 +58,13 @@ export class AnimeDescriptionComponent implements OnInit {
           } as Photo;
           this.mainPhoto = mainPhoto;
         })
-      });
+      });*/
     }
   }
 
   setPhotos() {
     if (this.animeId) {
-      this.photoService.getMainPhoto(this.animeId).subscribe(response => {
+     /* this.photoService.getMainPhoto(this.animeId).subscribe(response => {
         this.photos = response.map(document => { 
           return {
             id: document.payload.doc.id,
@@ -73,14 +73,14 @@ export class AnimeDescriptionComponent implements OnInit {
             type: document.payload.doc.get('type'),
           } as Photo;
         })
-      });
+      });*/
     }
   }
 
   setAnimeDescription() {
    
     if (this.animeId) {
-      this.animeService.getAnimeDescription(this.animeId).subscribe(response => {
+     /* this.animeService.getAnimeDescription(this.animeId).subscribe(response => {
         response.forEach(document => {
           const animeDescription = {
             id: document.payload.doc.id,
@@ -91,22 +91,13 @@ export class AnimeDescriptionComponent implements OnInit {
           } as AnimeDescription;
           this.animeDescription = animeDescription;
         })
-      });
+      });*/
     }
   }
 
   setAnime() {
     if (this.animeId) {
-      this.animeService.getAnime(this.animeId).subscribe(response => {
-        response.forEach(document => {
-          const anime = {
-            id: document.payload.doc.id,
-            name: document.payload.doc.get('name'),
-            status: document.payload.doc.get('status'),
-          } as Anime;
-          this.anime = anime;
-        });
-      });
+
     }
   }
 }

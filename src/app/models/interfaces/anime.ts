@@ -7,6 +7,27 @@ export interface Anime {
   id: string;
   name: string;
   status: StatusType;
+  isPopular:boolean;
+}
+
+export interface AnimeDescription{
+  id: string;
+  animeId: string;
+  plot: string;
+  type: string;
+  released: string;
+}
+
+export interface OngoingAnime {
+  id: string;
+  name: string;
+
+}
+
+export interface Genre {
+  id: string;
+  animeId: string;
+  genre: string;
 }
 
 export interface AnimeAddRequest {
@@ -19,24 +40,3 @@ export interface AnimeAddRequest {
   mainPhoto: Photo;
 }
 
-
-export interface AnimeDescription{
-  id: string;
-  animeId: string;
-  plot: string;
-  type: string;
-  released: string;
-} 
-
-export interface OngoingAnime {
-  id: string;
-  name: string;
-
-}
-
-
-export interface Genre {
-  id: string;
-  animeId: string;
-  genre: string; 
-}

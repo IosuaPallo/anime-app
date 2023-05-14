@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { where } from 'firebase/firestore';
+import { collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { doc, where } from 'firebase/firestore';
 import { map, Observable, of } from 'rxjs';
 import { environment } from '../../../environments/environment';
-import { Anime, AnimeAddRequest } from '../../models/interfaces/anime';
+import { Anime, AnimeAddRequest, AnimeDescription, Genre } from '../../models/interfaces/anime';
 import { PhotoType } from '../../photoType';
 import { StatusType } from '../../statusType';
 import { PhotoService } from '../photo/photo.service';
@@ -16,56 +17,51 @@ export class AnimeService {
   }
 
   getAllAnime() {
-    const anime = this.firestore.collection('Anime').snapshotChanges();
-    return anime; 
+    const anime = this.firestore.collection<Anime>('Anime').valueChanges({idField:"id"});
+    return anime;
   }
 
   getAllOnGoingAnime() {
-    
-    const ongoingAnime = this.firestore.collection('Anime', ref => {
+
+    const ongoingAnime = this.firestore.collection<Anime>('Anime', ref => {
       return ref
         .where("status", "==", `${StatusType.Ongoing}`);
-    }).snapshotChanges(); 
-    return ongoingAnime; 
+    }).valueChanges({idField:"id"});
+    return ongoingAnime;
   }
 
   getPopularAnime() {
-    const popularAnime = this.firestore.collection('Anime', ref => {
+    const popularAnime = this.firestore.collection<Anime>('Anime', ref => {
       return ref.where('isPopular', '==', true);
-    }).snapshotChanges();
+    }).valueChanges({ idField: "id" });
     return popularAnime;
   }
 
 
   getAnime(id: string) {
-    const anime = this.firestore.collection('Anime', ref => {
-      return ref
-        .where('id', "==", `${id}`).limit(1);
-    }).snapshotChanges(); 
+    const anime = this.firestore.collection<Anime>(`Anime`, ref=>{
+      return ref.where('__name__','==',id).
+      limit(1);
+    }).valueChanges({ idField: "id" }).pipe(map(val => val.length > 0 ? val[0] : null));
     return anime;
   }
 
   getAnimeDescription(id: string) {
-    const animeDescription = this.firestore.collection('AnimeDescription', ref => {
+    const animeDescription = this.firestore.collection<AnimeDescription>('AnimeDescription', ref => {
       return ref
         .where(`animeId`, `==`, `${id}`).limit(1);
-    }).snapshotChanges();
+    }).valueChanges({ idField: "id" });
     return animeDescription;
   }
 
   getGenres(id: string) {
-    return this.firestore.collection('Genres', ref => {
+    return this.firestore.collection<Genre>('Genres', ref => {
       return ref.where('animeId', '==', id);
-    }).snapshotChanges();
+    }).valueChanges({ idField: "id" });
   }
-
-
-/*  addAnime(animeAddRequest: AnimeAddRequest) {
-  }
-*/
 
 
 
 }
 
- 
+
