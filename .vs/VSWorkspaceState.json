@@ -2,10 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\src",
-    "\\src\\app",
-    "\\src\\app\\popular-anime",
-    "\\src\\environments"
+    "\\src\\app\\anime-frame",
+    "\\src\\app\\anime-list",
+    "\\src\\app\\models\\interfaces",
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app\\popular-anime\\popular-anime.component.ts",
+  "SelectedNode": "\\src\\assets\\Poze",
   "PreviewInSolutionExplorer": false
 }

@@ -1,24 +1,21 @@
-<p>anime-description works!</p>
-<div *ngIf="mainPhoto">
-  <img src="{{mainPhoto.path}}"/>
-</div>
+<div class="description-page">
+  <div >
+    <img src="{{mainPhoto?.path}}}">
+  </div>
 
-<div *ngIf="animeDescription && anime">
-  <p><span>name:</span>{{anime.name}}</p>
-  <p><span>type:</span>{{animeDescription.type}}</p>
-  <p><span>Plot Summary:</span>{{animeDescription.plot}}</p>
-  <p><span>genre:</span></p>
-  <p><span>Released:</span>{{animeDescription.released}}</p>
-  <p><span>Status:</span>{{anime.status}}</p>
-</div>
+  <div class="description" >
+    <p><span class="attributes">Name: </span>{{anime?.name}}</p>
+    <p><span class="attributes">Type: </span>{{animeDescription?.type}}</p>
+    <p><span class="attributes">Plot Summary: </span>{{animeDescription?.plot}}</p>
+    <span class = attributes>Genre: </span>
+      <div *ngFor="let genre of animeDescription?.genres">
+        genre<span *ngIf="!last">, </span>
+      </div>
+    <p><span class="attributes">Released: </span>{{animeDescription?.released}}</p>
+    <p><span class="attributes"> Status: </span>{{anime?.status}}</p>
+  </div>
 
-<div *ngIf="photos">
-  <mat-list >
-    <mat-list-item *ngFor="let photo of photos">
-      <img src="photo.path"/>
-    </mat-list-item>
-  </mat-list>
-</div>
-<div>
-
+    <div *ngFor="let photo of photos">
+      <img src="{{photo?.path}}">
+    </div>
 </div>

@@ -1,0 +1,16 @@
+.anime-frame{
+  background: #303030;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  transition: color 0.5s ease-in-out;
+}
+
+a:hover, a:active{
+  color: orange;
+  text-decoration: none;
+  transition: color 0.5s ease-in-out;
+}
+

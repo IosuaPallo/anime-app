@@ -13,24 +13,15 @@ export class AnimeListComponent {
   letters: string[]=[];
 
   constructor(private animeService: AnimeService) {
-    this.setLetters();
   }
 
   ngOnInit(): void {
+    this.setLetters();
     this.setAnimes();
     this.sortAnimes();
   }
 
   setAnimes(): void {
-   /* this.animeService.getAllAnime().subscribe(response => {
-      this.animeList = response.map(document => {
-        return {
-          id: document.payload.doc.id,
-          name: document.payload.doc.get('name'),
-          status: document.payload.doc.get('status')
-        } as Anime;
-      });
-    });*/
     this.animeService.getAllAnime().subscribe(anime => this.animeList = anime);
   }
 
@@ -43,6 +34,6 @@ export class AnimeListComponent {
   }
 
   private setLetters() {
-    this.letters?.push("A","B",'C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
+    this.letters.push("A","B",'C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z');
   }
 }

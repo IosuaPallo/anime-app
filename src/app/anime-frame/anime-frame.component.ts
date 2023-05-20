@@ -34,7 +34,7 @@ export class AnimeFrameComponent implements OnInit {
 
   setAnime() {
     if (this.animeId) {
-      this.animeService.getAnime(this.animeId).subscribe(anime=>this.anime=anime);
+       this.animeService.getAnime(this.animeId).subscribe(anime=>this.anime=anime);
     }
   }
 

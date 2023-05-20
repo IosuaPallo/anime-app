@@ -5,9 +5,20 @@
     </mat-sidenav>
     <mat-sidenav-content>
       <app-anime-header (sidenavToggle)="sidenav.toggle()"></app-anime-header>
-      <main>
-        <router-outlet></router-outlet>
-      </main>
+      <div class="page-container">
+        <div class="left-column">
+        </div>
+      <div>
+        <main style="height: 100%;background-color: #303030">
+          <mat-divider style="border-top-color: orange"></mat-divider>
+          <router-outlet></router-outlet>
+        </main>
+      </div>
+        <div class="right-column"> </div>
+      </div>
     </mat-sidenav-content>
   </mat-sidenav-container>
 </app-layout>
+
+
+

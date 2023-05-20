@@ -38,6 +38,10 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatToolbarModule} from "@angular/material/toolbar";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import { LayoutComponent } from './layout/layout.component';
+import {AngularFireStorageModule} from "@angular/fire/compat/storage";
+import {AngularFireDatabaseModule} from "@angular/fire/compat/database";
+import {NgOptimizedImage} from "@angular/common";
+import { IonicModule } from '@ionic/angular';
 
 @NgModule({
   declarations: [
@@ -72,7 +76,11 @@ import { LayoutComponent } from './layout/layout.component';
     MatTabsModule,
     MatSidenavModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    AngularFireStorageModule,
+    AngularFireDatabaseModule,
+    NgOptimizedImage,
+    IonicModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

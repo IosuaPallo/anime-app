@@ -5,5 +5,6 @@ export interface Photo {
   animeId: string;
   path: string;
   type: PhotoType;
+  file:File;
 }
 

@@ -1,15 +1,15 @@
-<body>
+<div class="title">
+  <h1>Anime List</h1>
+</div>
 
-<p>anime-list works!</p>
-
-<mat-list >
-<mat-list-item class="mat-list-color" *ngFor="let letter of letters">
-  <h2>{{letter}}</h2>
-  <mat-list *ngFor="let anime of animeList">
-    <mat-list-item class="mat-list-color" *ngIf="anime.name.startsWith(letter)">
-      <a routerLink="animeDescription/{{anime.id}}">{{anime.name}}</a>
-    </mat-list-item>
-  </mat-list>
-</mat-list-item>
-</mat-list>
-</body>
+<ul >
+  <li *ngFor="let letter of letters">
+    <h2>{{letter}}</h2>
+    <div *ngFor="let anime of animeList">
+      <div *ngIf="anime.name.startsWith(letter)">
+        <a routerLink="/animeDescription/{{anime.id}}">{{anime.name}}</a>
+      </div>
+    </div>
+    <mat-divider ></mat-divider>
+  </li>
+</ul>

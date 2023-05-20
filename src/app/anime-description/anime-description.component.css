@@ -1,0 +1,18 @@
+.description-page{
+  background-color: #303030;
+  color:white;
+  font-size: 20px;
+}
+
+.description-page .attributes{
+  color:orange;
+}
+
+.description-page .description{
+
+}
+
+html, body{
+  background-color:#303030;
+  height: 100%;
+}

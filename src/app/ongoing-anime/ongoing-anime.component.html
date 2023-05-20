@@ -1,9 +1,10 @@
-<h1>ongoingAnime works</h1>
-
-<mat-list class="list">
-  <mat-list-item *ngFor="let anime of ongoingAnime">
+<div class="title">
+  <h1>Ongoing Anime</h1>
+</div>
+<div class="list">
+  <div *ngFor="let anime of ongoingAnime">
     <app-anime-frame [animeId]="anime.id"></app-anime-frame>
-  </mat-list-item>
-</mat-list>
+  </div>
+</div>
 
 

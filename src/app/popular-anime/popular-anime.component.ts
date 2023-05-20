@@ -17,6 +17,6 @@ export class PopularAnimeComponent implements OnInit{
   }
 
   setAnimes() {
-    //this.animeService.getPopularAnime().subscribe(anime => this.popularAnime = anime); 
+    this.animeService.getPopularAnime().subscribe(anime => this.popularAnime = anime); 
   }
 }

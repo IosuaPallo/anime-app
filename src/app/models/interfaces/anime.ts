@@ -16,6 +16,7 @@ export interface AnimeDescription{
   plot: string;
   type: string;
   released: string;
+  genres:string[];
 }
 
 export interface OngoingAnime {

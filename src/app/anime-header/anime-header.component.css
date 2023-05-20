@@ -1,11 +1,15 @@
 a {
   text-decoration: none;
   color: white;
+  transition: color 0.5s ease-in-out;
 }
+
 a:hover, a:active{
   color: orange;
   text-decoration: underline;
+  transition: color 0.5s ease-in-out;
 }
+
 .navigation-items{
   padding: 0;
   margin-right: 2em;
@@ -21,6 +25,10 @@ mat-toolbar{
 .navbar{
   justify-content: space-between;
   background: #303030;
+}
+
+ul li{
+  list-style-type: none;
 }
 
 

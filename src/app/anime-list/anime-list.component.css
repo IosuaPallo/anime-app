@@ -1,8 +1,35 @@
-.mat-list-color{
-  background-color: brown;
-  color: beige;
+html, body{
+  background-color: #e8e8e8;
+  height:100%;
 }
 
-body{
-  background-color: gray;
+
+ul{
+  padding: 3% 5%;
+
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.5s ease-in-out;
+}
+
+a:hover, a:active{
+  color: orange;
+  text-decoration: none;
+  transition: color 0.5s ease-in-out;
+}
+
+.title{
+  display: inline-block;
+  background-color: orange;
+  color:black;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+ul li{
+  list-style-type: none;
 }

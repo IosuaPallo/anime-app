@@ -47,19 +47,17 @@ export class AnimeService {
   }
 
   getAnimeDescription(id: string) {
-    const animeDescription = this.firestore.collection<AnimeDescription>('AnimeDescription', ref => {
+    const animeDescription = this.firestore.collection<AnimeDescription>('Anime-Description', ref => {
       return ref
         .where(`animeId`, `==`, `${id}`).limit(1);
-    }).valueChanges({ idField: "id" });
+    }).valueChanges({ idField: "id" }).pipe(map(val => val.length > 0 ? val[0] : null));
     return animeDescription;
   }
 
-  getGenres(id: string) {
-    return this.firestore.collection<Genre>('Genres', ref => {
-      return ref.where('animeId', '==', id);
-    }).valueChanges({ idField: "id" });
-  }
+  saveAnime(anime: Anime) {
+    this.firestore.collection<Anime>('Anime').doc().set(anime);
 
+  }
 
 
 }

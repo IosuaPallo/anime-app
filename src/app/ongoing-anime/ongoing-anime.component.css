@@ -1,0 +1,28 @@
+.title{
+  display: inline-block;
+  background-color: orange;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+html,body{
+  height:100%;
+  background-color: #303030;
+}
+
+.list{
+  padding: 3% 5%;
+}
+
+a {
+  text-decoration: none;
+  color: orange;
+  transition: color 0.5s ease-in-out;
+}
+
+a:hover, a:active{
+  color: white;
+  text-decoration: none;
+  transition: color 0.5s ease-in-out;
+}

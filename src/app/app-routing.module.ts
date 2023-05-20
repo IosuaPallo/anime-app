@@ -8,18 +8,22 @@ const routes: Routes = [
   {
     component: OngoingAnimeComponent,
     path:"ongoingAnime",
+
   },
   {
     component: AnimeListComponent,
     path:"animeList",
+
   },
   {
     component: PopularAnimeComponent,
     path:"popularAnime",
+
   },
   {
     component: AnimeDescriptionComponent,
     path:"animeDescription/:id",
+
   },
   {
     path: '',

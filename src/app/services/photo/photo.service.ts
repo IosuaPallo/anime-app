@@ -11,13 +11,9 @@ import {ref, Storage, uploadBytes} from "@angular/fire/storage";
 })
 export class PhotoService {
 
-  constructor(private firestore: AngularFirestore,
-              private storage:Storage) { }
+  constructor(private firestore: AngularFirestore) { }
 
   getMainPhoto(animeId:string ) {
-    let file;
-    const storageRef = ref(this.storage,"sao");
-   // const uploadTask = uploadBytes(storageRef,file);
     const mainPhoto = this.firestore.collection<Photo>('Photos', ref => {
       return ref.
         where('animeId', "==", animeId)
@@ -28,7 +24,7 @@ export class PhotoService {
   }
 
   getPhotos(animeId:string) {
-    const photos = this.firestore.collection('Photos', ref => {
+    const photos = this.firestore.collection<Photo>('Photos', ref => {
       return ref
         .where('animeId', "==", animeId)
         .where('type','==',PhotoType.Normal);

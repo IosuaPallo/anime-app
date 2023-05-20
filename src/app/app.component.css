@@ -1,4 +1,4 @@
-nav a {
+ a {
   padding: 1rem;
   text-decoration: none;
   margin-top: 10px;
@@ -8,16 +8,16 @@ nav a {
   border-radius: 4px;
 }
 
-  nav a:hover {
+   a:hover {
     color: white;
     background-color: #42545C;
   }
 
-  nav a:active {
+   a:active {
     background-color: black;
   }
 
- html, body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:black; }
+ html, body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:black;  }
 
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
   height: 100%;
@@ -26,5 +26,17 @@ mat-sidenav {
   width: 250px;
 }
 main {
-  padding: 10px;
+}
+
+
+
+
+.page-container {
+  display: grid;
+  grid-template-columns: 0.1fr 0.8fr 0.1fr;
+  height: 100%    ;
+}
+
+.page-container .left-column, .page-container .right-column{
+  background-color: #111111;
 }

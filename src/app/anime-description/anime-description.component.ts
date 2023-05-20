@@ -1,11 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { AnimeService } from '../services/anime/anime.service';
-import { Photo } from '../models/interfaces/photo';
-import { Anime, AnimeDescription, Genre } from '../models/interfaces/anime';
-import { PhotoService } from '../services/photo/photo.service';
-import { doc } from '@angular/fire/firestore';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {AnimeService} from '../services/anime/anime.service';
+import {Photo} from '../models/interfaces/photo';
+import {Anime, AnimeDescription} from '../models/interfaces/anime';
+import {PhotoService} from '../services/photo/photo.service';
+import {PhotoType} from "../photoType";
+import {StatusType} from "../statusType";
+import {last} from "rxjs";
+import {StorageService} from "../services/storage/storage.service";
 
 @Component({
   selector: 'app-anime-description',
@@ -13,91 +15,56 @@ import { doc } from '@angular/fire/firestore';
   styleUrls: ['./anime-description.component.css']
 })
 export class AnimeDescriptionComponent implements OnInit {
-  constructor(private route: ActivatedRoute, private animeService: AnimeService, private photoService: PhotoService) {
+
+  animeId: string="";
+  mainPhoto?: Photo | null;
+  anime: Anime | null ={id: "", isPopular: false, name: "", status: StatusType.Null};
+  animeDescription: AnimeDescription | null = {animeId: "", genres: [], id: "", plot: "", released: "", type: ""};
+  photos: Photo[] | null=[];
+
+  constructor(private route: ActivatedRoute, private animeService: AnimeService, private photoService: PhotoService,private storageService:StorageService) {
   }
 
-  animeId?: string;
-  mainPhoto?: Photo;
-  anime?: Anime;
-  animeDescription?: AnimeDescription;
-  photos?: Photo[];
-  animeGenres?: Genre[];
 
-  ngOnInit(): void {
-    this.animeId = this.route.snapshot.params['id']; 
-    this.setAnime();
-    this.setAnimeDescription();
-    this.setMainPhoto();
-    this.setPhotos();
-    this.setGenres(); 
+  async ngOnInit() {
+    this.animeId = this.route.snapshot.params['id'];
+    await this.setAnimeDescription();
+    await this.setAnime();
+    await this.setMainPhoto();
+    await this.setPhotos();
+    await this.setMainPhotoFromStorage();
   }
 
-  setGenres() {
+
+   setMainPhoto() {
     if (this.animeId) {
-     /* this.animeService.getGenres(this.animeId).subscribe(response => {
-        this.animeGenres = response.map(document => {
-          return {
-            id: document.payload.doc.id,
-            animeId: document.payload.doc.get('animeId'),
-            genre: document.payload.doc.get('genre'), 
-          } as Genre;
-        })
-      })*/
+      this.photoService.getMainPhoto(this.animeId).subscribe(photo => {
+        this.mainPhoto = photo});
     }
   }
 
-  setMainPhoto() {
-    if (this.animeId) {
-     /* this.photoService.getMainPhoto(this.animeId).subscribe(response => {
-        response.forEach(document => {
-          const mainPhoto = {
-            id: document.payload.doc.id,
-            animeId: document.payload.doc.get('animeId'),
-            path: document.payload.doc.get('path'),
-            type: document.payload.doc.get('type'),
-          } as Photo;
-          this.mainPhoto = mainPhoto;
-        })
-      });*/
-    }
-  }
 
   setPhotos() {
     if (this.animeId) {
-     /* this.photoService.getMainPhoto(this.animeId).subscribe(response => {
-        this.photos = response.map(document => { 
-          return {
-            id: document.payload.doc.id,
-            animeId: document.payload.doc.get('animeId'),
-            path: document.payload.doc.get('path'),
-            type: document.payload.doc.get('type'),
-          } as Photo;
-        })
-      });*/
+     this.photoService.getPhotos(this.animeId).subscribe(photos => this.photos = photos)
     }
   }
 
-  setAnimeDescription() {
-   
+  async setAnimeDescription() {
     if (this.animeId) {
-     /* this.animeService.getAnimeDescription(this.animeId).subscribe(response => {
-        response.forEach(document => {
-          const animeDescription = {
-            id: document.payload.doc.id,
-            plot: document.payload.doc.get('plot'),
-            type: document.payload.doc.get('type'),
-            animeId: this.animeId,
-            released: document.payload.doc.get('released'),
-          } as AnimeDescription;
-          this.animeDescription = animeDescription;
-        })
-      });*/
+      await this.animeService.getAnimeDescription(this.animeId).subscribe(animeDescription => this.animeDescription = animeDescription);
     }
   }
 
   setAnime() {
     if (this.animeId) {
-
+    this.animeService.getAnime(this.animeId).subscribe(anime => this.anime = anime);
     }
+  }
+
+  protected readonly last = last;
+
+  private async setMainPhotoFromStorage() {
+    //this.storageService.getFile(this.mainPhoto?.path).subscribe()
   }
 }
