@@ -1,0 +1,28 @@
+.title{
+  display: inline-block;
+  background-color: orange;
+  color:black;
+  width: 100%;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+html,body{
+  height:100%;
+  background-color: #303030;
+}
+
+.list{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list li{
+  box-sizing: border-box;
+  list-style-type: none;
+  padding: 1% 1% 0% 0%;
+}
+
+

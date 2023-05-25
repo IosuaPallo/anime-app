@@ -1,0 +1,42 @@
+ a {
+  padding: 1rem;
+  text-decoration: none;
+  margin-top: 10px;
+  display: inline-block;
+  background-color: #e8e8e8;
+  color: #3d3d3d;
+  border-radius: 4px;
+}
+
+   a:hover {
+    color: white;
+    background-color: #42545C;
+  }
+
+   a:active {
+    background-color: black;
+  }
+
+ html, body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; background:black;  }
+
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+}
+mat-sidenav {
+  width: 250px;
+}
+main {
+}
+
+
+
+
+.page-container {
+  display: grid;
+  grid-template-columns: 0.1fr 0.8fr 0.1fr;
+  height: 100%    ;
+}
+
+.page-container .left-column, .page-container .right-column{
+  background-color: #111111;
+}

@@ -1,0 +1,23 @@
+<mat-toolbar color="primary" class="navbar">
+  <div fxHide.gt-xs>
+    <button mat-icon-button (click)="onToggleSidenav()">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </div>
+  <div class="logo" >
+    <a routerLink="/ongoingAnime"><img  src={{logo?.url}}></a>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <ul fxLayout fxLayoutGap="50px" class="navigation-items">
+      <li>
+        <a routerLink="/ongoingAnime">Home</a>
+      </li>
+      <li>
+        <a routerLink="/animeList">List</a>
+      </li>
+      <li >
+        <a routerLink="/popularAnime">Popular Anime</a>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

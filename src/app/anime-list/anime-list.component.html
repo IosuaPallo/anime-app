@@ -1,1 +1,15 @@
-<p>anime-list works!</p>
+<div class="title">
+  <h1>Anime List</h1>
+</div>
+
+<ul >
+  <li *ngFor="let letter of letters">
+    <h2>{{letter}}</h2>
+    <div *ngFor="let anime of animeList">
+      <div *ngIf="anime.name.startsWith(letter)">
+        <a routerLink="/animeDescription/{{anime.id}}">{{anime.name}}</a>
+      </div>
+    </div>
+    <mat-divider ></mat-divider>
+  </li>
+</ul>

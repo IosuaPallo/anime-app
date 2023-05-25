@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Anime } from '../models/anime';
+import { Photo } from '../models/photo';
+import { AnimeService } from '../services/anime/anime.service';
 
 @Component({
   selector: 'app-ongoing-anime',
@@ -6,5 +9,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./ongoing-anime.component.css']
 })
 export class OngoingAnimeComponent {
+  ongoingAnime?: Anime[];
+
+  constructor(private animeService: AnimeService) {
+
+  }
+
+  ngOnInit(): void {
+    this.setAllOngoingAnime();
+  }
+
+  setAllOngoingAnime() {
+    this.animeService.getAllOnGoingAnime().subscribe(anime => {
+      this.ongoingAnime = anime;
+    });
+  }
 
 }

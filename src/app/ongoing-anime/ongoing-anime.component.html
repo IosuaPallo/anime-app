@@ -1,1 +1,10 @@
-<p>ongoing-anime works!</p>
+<div class="title">
+  <h1>Ongoing Anime</h1>
+</div>
+<ul fxLayout  class="list" >
+  <li *ngFor="let anime of ongoingAnime">
+    <app-anime-frame [animeId]="anime.id"></app-anime-frame>
+  </li>
+</ul>
+
+

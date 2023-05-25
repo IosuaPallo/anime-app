@@ -1,0 +1,49 @@
+.anime-frame{
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-right: 0.2em;
+}
+
+a {
+  text-decoration: none;
+  color: orange;
+  transition: color 0.5s ease-in-out;
+}
+
+a:hover, a:active{
+  color: white;
+  text-decoration: none;
+  transition: color 0.5s ease-in-out;
+}
+
+.anime-frame .photo{
+  width: 16vw;
+  height:50vh;
+}
+
+.text{
+  font-size: 1.5rem;
+  width: 18vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 768px) {
+  .anime-frame .photo {
+    width: 30vw;
+    height: 40vh;
+  }
+
+  .text{
+    font-size:0.8rem;
+    width: 28vw;
+  }
+
+  .anime-frame{
+    margin-left: 0;
+  }
+}

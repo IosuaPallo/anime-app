@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\.angular",
     "\\src",
-    "\\src\\app"
+    "\\src\\assets"
   ],
-  "SelectedNode": "\\src\\app",
+  "SelectedNode": "\\src\\assets\\Poze",
   "PreviewInSolutionExplorer": false
 }
