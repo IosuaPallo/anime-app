@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Anime } from '../models/interfaces/anime';
-import { Photo } from '../models/interfaces/photo';
+import { Anime } from '../models/anime';
+import { Photo } from '../models/photo';
 import { AnimeService } from '../services/anime/anime.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class OngoingAnimeComponent {
   }
 
   ngOnInit(): void {
-    this.setAllOngoingAnime(); 
+    this.setAllOngoingAnime();
   }
 
   setAllOngoingAnime() {

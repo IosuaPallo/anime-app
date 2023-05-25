@@ -1,13 +1,8 @@
-import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { collection, collectionData, Firestore } from '@angular/fire/firestore';
-import { doc, where } from 'firebase/firestore';
-import { map, Observable, of } from 'rxjs';
-import { environment } from '../../../environments/environment';
-import { Anime, AnimeAddRequest, AnimeDescription, Genre } from '../../models/interfaces/anime';
-import { PhotoType } from '../../photoType';
-import { StatusType } from '../../statusType';
-import { PhotoService } from '../photo/photo.service';
+import {Injectable} from '@angular/core';
+import {AngularFirestore} from '@angular/fire/compat/firestore';
+import {map} from 'rxjs';
+import {Anime, AnimeDescription} from '../../models/anime';
+import {StatusType} from '../../statusType';
 
 @Injectable({
   providedIn: 'root'
@@ -47,16 +42,16 @@ export class AnimeService {
   }
 
   getAnimeDescription(id: string) {
-    const animeDescription = this.firestore.collection<AnimeDescription>('Anime-Description', ref => {
+    return this.firestore.collection<AnimeDescription>('Anime-Description', ref => {
       return ref
-        .where(`animeId`, `==`, `${id}`).limit(1);
-    }).valueChanges({ idField: "id" }).pipe(map(val => val.length > 0 ? val[0] : null));
-    return animeDescription;
+        .where(`animeId`, `==`, `${id}`)
+        .limit(1);
+    }).valueChanges({idField: "id"}).pipe(map(val => val.length > 0 ? val[0] : null));
   }
 
-  saveAnime(anime: Anime) {
-    this.firestore.collection<Anime>('Anime').doc().set(anime);
-
+  async saveAnime(anime: Anime) {
+    const newAnime = this.firestore.collection('anime').doc();
+    await newAnime.set(anime);
   }
 
 

@@ -31,4 +31,9 @@ ul li{
   list-style-type: none;
 }
 
-
+.logo{
+  width: 8vw;
+  height: 6vh;
+  justify-content: start;
+  align-content: start;
+}

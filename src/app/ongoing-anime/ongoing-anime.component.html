@@ -1,10 +1,10 @@
 <div class="title">
   <h1>Ongoing Anime</h1>
 </div>
-<div class="list">
-  <div *ngFor="let anime of ongoingAnime">
+<ul fxLayout  class="list" >
+  <li *ngFor="let anime of ongoingAnime">
     <app-anime-frame [animeId]="anime.id"></app-anime-frame>
-  </div>
-</div>
+  </li>
+</ul>
 
 

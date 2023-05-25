@@ -1,10 +1,10 @@
-import { PhotoType } from "../../photoType";
+import { PhotoType } from "../photoType";
 
 export interface Photo {
   id: string;
   animeId: string;
   path: string;
   type: PhotoType;
-  file:File;
+  url:string;
 }
 

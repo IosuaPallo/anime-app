@@ -1,21 +1,32 @@
-<div class="description-page">
-  <div >
-    <img src="{{mainPhoto?.path}}}">
-  </div>
-
-  <div class="description" >
-    <p><span class="attributes">Name: </span>{{anime?.name}}</p>
-    <p><span class="attributes">Type: </span>{{animeDescription?.type}}</p>
-    <p><span class="attributes">Plot Summary: </span>{{animeDescription?.plot}}</p>
-    <span class = attributes>Genre: </span>
-      <div *ngFor="let genre of animeDescription?.genres">
-        genre<span *ngIf="!last">, </span>
-      </div>
-    <p><span class="attributes">Released: </span>{{animeDescription?.released}}</p>
-    <p><span class="attributes"> Status: </span>{{anime?.status}}</p>
-  </div>
-
-    <div *ngFor="let photo of photos">
-      <img src="{{photo?.path}}">
-    </div>
+<div class="title">
+  {{anime?.name}}
 </div>
+
+<div class="description-page">
+  <div class="left-column">
+    <div class="main-photo">
+      <img src={{mainPhoto?.url}}>
+    </div>
+    <div  class="video">
+      <iframe *ngIf="trailer" src=trailer?.url allowfullscreen></iframe>
+    </div>
+    <ul class="photos" *ngFor="let photo of photos">
+      <li>
+        <img src={{photo?.url}}>
+      </li>
+    </ul>
+  </div>
+  <div class="right-column">
+      <p><span class="attributes">Name: </span>{{anime?.name}}</p>
+      <p><span class="attributes">Type: </span>{{animeDescription?.type}}</p>
+      <p><span class="attributes">Plot Summary: </span>{{animeDescription?.plot}}</p>
+      <span class = attributes>Genre: </span>
+      <div class="genreList" *ngFor="let genre of animeDescription?.genres">
+        {{genre}}
+      </div>
+      <p><span class="attributes">Released: </span>{{animeDescription?.released}}</p>
+      <p><span class="attributes"> Status: </span>{{anime?.status}}</p>
+  </div>
+</div>
+
+

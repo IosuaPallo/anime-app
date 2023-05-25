@@ -1,8 +1,11 @@
 .title{
   display: inline-block;
   background-color: orange;
+  color:black;
   width: 100%;
   text-align: center;
+  align-content: center;
+  justify-content: center;
   font-weight: bold;
 }
 
@@ -12,17 +15,22 @@ html,body{
 }
 
 .list{
-  padding: 3% 5%;
+  display: flex;
+  flex-wrap: wrap;
 }
 
-a {
-  text-decoration: none;
-  color: orange;
-  transition: color 0.5s ease-in-out;
+.list li{
+  font-size: 1.5rem;
+  box-sizing: border-box;
+  list-style-type: none;
+  padding: 1% 1% 0% 0%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-a:hover, a:active{
-  color: white;
-  text-decoration: none;
-  transition: color 0.5s ease-in-out;
+@media screen and (min-width: 768px) {
+  .list li{
+    font-size: 1rem;
+  }
 }

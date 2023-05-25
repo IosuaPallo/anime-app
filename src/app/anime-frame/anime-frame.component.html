@@ -1,6 +1,6 @@
 
-  <div class="anime-frame" *ngIf="anime">
-    <a routerLink="/animeDescription/{{anime.id}}"><img ngSrc="./assets/Poze/123.jpg" alt="" height="300"
-                                                       width="200"/></a>
-    <a style="margin-top: 1rem" routerLink="/animeDescription/{{anime.id}}">{{anime.name}}</a>
+  <div class="anime-frame">
+    <a routerLink="/animeDescription/{{anime?.id}}"><img class="photo" src={{url}} alt=""></a>
+    <a class="text"  routerLink="/animeDescription/{{anime?.id}}">{{anime?.name}}</a>
   </div>
+

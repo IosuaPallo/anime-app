@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { doc, Firestore } from '@angular/fire/firestore';
 import {map, Observable} from 'rxjs';
-import { Photo } from '../../models/interfaces/photo';
+import { Photo } from '../../models/photo';
 import { PhotoType } from '../../photoType';
-import {ref, Storage, uploadBytes} from "@angular/fire/storage";
 
 @Injectable({
   providedIn: 'root'
@@ -14,17 +12,17 @@ export class PhotoService {
   constructor(private firestore: AngularFirestore) { }
 
   getMainPhoto(animeId:string ) {
-    const mainPhoto = this.firestore.collection<Photo>('Photos', ref => {
+    const mainPhoto = this.firestore.collection<Photo>('Photo', ref => {
       return ref.
         where('animeId', "==", animeId)
-        .where('type', "==", PhotoType.Main)
+        .where('type', "==", 'main')
          .limit(1);
     }).valueChanges({idField:'id'}).pipe(map(val => val.length > 0 ? val[0] : null));
     return mainPhoto;
   }
 
   getPhotos(animeId:string) {
-    const photos = this.firestore.collection<Photo>('Photos', ref => {
+    const photos = this.firestore.collection<Photo>('Photo', ref => {
       return ref
         .where('animeId', "==", animeId)
         .where('type','==',PhotoType.Normal);
@@ -32,4 +30,11 @@ export class PhotoService {
     return photos;
   }
 
+  getLogo(){
+    return this.firestore.collection<Photo>('Photo',ref=>{
+      return ref
+        .where('type',"==",PhotoType.Logo)
+        .limit(1);
+    }).valueChanges({idField:"id"}).pipe(map(val => val.length > 0 ? val[0] : null));
+  }
 }

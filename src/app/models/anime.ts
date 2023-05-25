@@ -1,5 +1,5 @@
 
-import { StatusType } from "../../statusType";
+import { StatusType } from "../statusType";
 import { Photo } from "./photo";
 
 

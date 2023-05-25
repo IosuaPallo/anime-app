@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Anime } from '../models/interfaces/anime';
+import { Anime } from '../models/anime';
 import { AnimeService } from '../services/anime/anime.service';
 
 

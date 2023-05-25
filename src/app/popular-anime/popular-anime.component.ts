@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Anime, OngoingAnime } from '../models/interfaces/anime';
+import { Anime, OngoingAnime } from '../models/anime';
 import { AnimeService } from '../services/anime/anime.service';
 
 @Component({
@@ -17,6 +17,6 @@ export class PopularAnimeComponent implements OnInit{
   }
 
   setAnimes() {
-    this.animeService.getPopularAnime().subscribe(anime => this.popularAnime = anime); 
+    this.animeService.getPopularAnime().subscribe(anime => this.popularAnime = anime);
   }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {Anime} from './models/interfaces/anime';
+import {Anime} from './models/anime';
 import {AnimeService} from './services/anime/anime.service';
 import {StatusType} from './statusType';
 import {ActivatedRoute} from "@angular/router";
